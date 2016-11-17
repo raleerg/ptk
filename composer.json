@@ -1,0 +1,17 @@
+{
+  "name": "raleerg/ptk",
+  "description": "Convert politika.rs to kindle",
+  "type": "project",
+  "require": {
+    "guzzlehttp/guzzle": "~6.0",
+    "symfony/dom-crawler": "*",
+    "symfony/console": "*",
+    "symfony/css-selector": "*",
+    "setasign/fpdf": "1.8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}

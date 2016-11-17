@@ -1,0 +1,6 @@
+vendor/
+Downloads/
+
+composer.phar
+.DS_Store
+.idea/
