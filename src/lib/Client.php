@@ -1,11 +1,14 @@
 <?php
 namespace App\Lib;
 
-use Guzzle\Http\Message\Response;
+use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Cookie\CookieJar;
-use Guzzle\Plugin\Cookie\CookiePlugin;
 use GuzzleHttp\Exception\ClientException;
 
+/**
+ * Class Client
+ * @package App\Lib
+ */
 class Client
 {
     /** @var \GuzzleHttp\Client Client */
@@ -13,9 +16,6 @@ class Client
 
     /** @var CookieJar */
     protected $cookiesJar;
-
-    /** @var CookiePlugin  */
-    protected $cookiePlugin;
 
     /** @var  Response */
     protected $response;
