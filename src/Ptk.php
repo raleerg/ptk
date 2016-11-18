@@ -64,9 +64,6 @@ class Ptk
     public function grabPages()
     {
         $issuesHomePageHTML = $this->client->getIssuesHomePage($this->issueLink);
-        $file = 'debug.txt';
-        file_put_contents($file, $issuesHomePageHTML);
-
         $crawler = new Crawler($issuesHomePageHTML);
         $this->allPages = $crawler->filter('div.page-thumbnail img');
         if (empty($this->allPages)) {
