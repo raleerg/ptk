@@ -112,7 +112,10 @@ class Ptk
     public function prepareDownload()
     {
         if (!file_exists(Constants::DOWNLOAD_FOLDER)) {
-            mkdir(Constants::DOWNLOAD_FOLDER, 0777, true);
+            if (!mkdir(Constants::DOWNLOAD_FOLDER, 0777, true)) {
+                echo "Folder downloads cant't be created.";
+                die(1);
+            }
         }
 
         if (!file_exists(Constants::DOWNLOAD_FOLDER . $this->issueNumber)) {
