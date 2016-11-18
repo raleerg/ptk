@@ -81,6 +81,8 @@ class Ptk
      */
     public function downloadAllPages()
     {
+        $this->prepareDownload();
+
         $this->allPages->each(function (Crawler $node, $i) {
             /** @var string $imageURL */
             $imageURL = $node->attr('src');
@@ -102,7 +104,7 @@ class Ptk
             unlink($filePath);
         });
 
-        $this->fpdf->Output('F', Constants::DOWNLOAD_FOLDER . '/' . $this->issueNumber . '/' . $this->issueNumber . ".pdf");
+        $this->fpdf->Output('F', Constants::DOWNLOAD_FOLDER . $this->issueNumber . '/' . $this->issueNumber . ".pdf");
     }
 
     /**
@@ -112,14 +114,11 @@ class Ptk
     public function prepareDownload()
     {
         if (!file_exists(Constants::DOWNLOAD_FOLDER)) {
-            if (!mkdir(Constants::DOWNLOAD_FOLDER, 0777, true)) {
-                echo "Folder downloads cant't be created.";
-                die(1);
-            }
+            mkdir(Constants::DOWNLOAD_FOLDER, 0777, true);
         }
 
-        if (!file_exists(Constants::DOWNLOAD_FOLDER . '/' . $this->issueNumber)) {
-            mkdir(Constants::DOWNLOAD_FOLDER . '/' . $this->issueNumber, 0777, true);
+        if (!file_exists(Constants::DOWNLOAD_FOLDER . $this->issueNumber)) {
+            mkdir(Constants::DOWNLOAD_FOLDER . $this->issueNumber, 0777, true);
         }
 
         $this->fpdf = new FPDF('P', 'cm', [52, 72]);
