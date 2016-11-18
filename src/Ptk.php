@@ -102,7 +102,7 @@ class Ptk
             unlink($filePath);
         });
 
-        $this->fpdf->Output('F', Constants::DOWNLOAD_FOLDER . $this->issueNumber . '/' . $this->issueNumber . ".pdf");
+        $this->fpdf->Output('F', Constants::DOWNLOAD_FOLDER . '/' . $this->issueNumber . '/' . $this->issueNumber . ".pdf");
     }
 
     /**
@@ -118,8 +118,8 @@ class Ptk
             }
         }
 
-        if (!file_exists(Constants::DOWNLOAD_FOLDER . $this->issueNumber)) {
-            mkdir(Constants::DOWNLOAD_FOLDER . $this->issueNumber, 0777, true);
+        if (!file_exists(Constants::DOWNLOAD_FOLDER . '/' . $this->issueNumber)) {
+            mkdir(Constants::DOWNLOAD_FOLDER . '/' . $this->issueNumber, 0777, true);
         }
 
         $this->fpdf = new FPDF('P', 'cm', [52, 72]);
