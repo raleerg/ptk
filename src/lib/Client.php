@@ -40,6 +40,10 @@ class Client
     {
         echo "Logging in ...\n";
 
+        if(!Constants::USER_NAME || !Constants::PASSWORD){
+            echo "Username or password are empty, please enter them in the Constants.php";
+        }
+
         try {
             $this->response = $this->client->request('POST', Constants::URL_LOGIN, [
                 'form_params' => [
