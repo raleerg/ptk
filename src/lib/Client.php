@@ -40,8 +40,9 @@ class Client
     {
         echo "Logging in ...\n";
 
-        if(!Constants::USER_NAME || !Constants::PASSWORD){
+        if (!Constants::USER_NAME || !Constants::PASSWORD) {
             echo "Username or password are empty, please enter them in the Constants.php";
+            die(1);
         }
 
         try {
