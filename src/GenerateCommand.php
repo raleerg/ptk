@@ -33,6 +33,6 @@ class GenerateCommand extends Command
         $output->writeln('Generating the last issue of politika.rs');
         $ptk->generatePdfFile();
 
-        $output->writeln('Lase issue is generated. Happy reading!');
+        $output->writeln('Last issue is generated. Happy reading!');
     }
 }
