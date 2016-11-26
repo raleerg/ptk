@@ -1,7 +1,9 @@
 <?php
-
 include "vendor/autoload.php";
 
-use App\Ptk;
+use Symfony\Component\Console\Application;
+use App\GenerateCommand;
 
-(new Ptk())->generatePdfFile();
+$application = new Application();
+$application->add(new GenerateCommand());
+$application->run();
