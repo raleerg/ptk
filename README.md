@@ -18,10 +18,10 @@ Now just enter your user name and password in the `src/lib/Constants.php` file.
 
 ## Run the generator
 
-You just need to run next command in terminal:
+You just need to run next command in the terminal:
 
 ```
-php Ptk.php
+php Ptk.php generate:last-issue
 ```
 
 After script finish you will have the last issue in the folder downloads.
